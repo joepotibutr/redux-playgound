@@ -19,4 +19,12 @@ const moveDownCliked = idx => ({
 export const moveDown = idx => dispatch => {
     dispatch(moveDownCliked(idx))
 }
+const moveUpCliked = idx => ({
+    type : 'MOVE_UP',
+    idx
+})
+
+export const moveUp = idx => dispatch => {
+    dispatch(moveUpCliked(idx))
+}
 

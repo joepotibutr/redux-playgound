@@ -5,25 +5,37 @@ const todo = (state = [] , action) => {
         case  'ADD_TO_DO' :
         return [
             ...state,{
-                ...state[action.id],
                 text : action.text
             }
         ]
         case 'SET_VISIBLE_TODOS' : 
             return action.data
         case 'MOVE_DOWN' : 
-            const idx = action.idx
-            if(idx !== state.length-1) 
+            const moveDownIdx = action.idx
+            if(moveDownIdx !== state.length-1) 
                 return [
-                    ...state.slice(0, idx),
-                    state[idx+1],
-                    state[idx],
-                    ...state.slice(idx + 2),
+                    ...state.slice(0, moveDownIdx),
+                    state[moveDownIdx+1],
+                    state[moveDownIdx],
+                    ...state.slice(moveDownIdx + 2),
                 ]
             else return [
-                    state[idx],
-                    ...state.slice(0,idx)
-                ]    
+                    state[moveDownIdx],
+                    ...state.slice(0,moveDownIdx)
+                ]
+        case 'MOVE_UP' : 
+            const moveUpIdx = action.idx
+            if(moveUpIdx !== 0) 
+               return [
+                    ...state.slice(0,moveUpIdx - 1),
+                    state[moveUpIdx],
+                    state[moveUpIdx-1],
+                    ...state.slice(moveUpIdx + 1)
+                ]
+            else return [
+                    ...state.slice(moveUpIdx+1),
+                    state[moveUpIdx],                    
+                ]        
         default : 
             return state
     }

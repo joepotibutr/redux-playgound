@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
-import { setVisibleTodos , moveDown} from './action'
+import { setVisibleTodos , moveDown , moveUp } from './action'
 
 class App extends Component {
   componentWillMount(){
@@ -18,12 +18,17 @@ class App extends Component {
         <div className="App-intro">
           <ul>
           {this.props.todos.map((i,idx) => 
-              <li key={i.text}>
-                 {i.text} 
+              <li key={idx} style={{padding:'10px'}}>
+                {idx} ) {i.text} 
                 <button 
                   onClick={() => this.props.moveDown(idx)}
                 >
                   down
+                </button>
+                <button 
+                  onClick={() => this.props.moveUp(idx)}
+                >
+                  up
                 </button>
               </li>
           )}
@@ -38,4 +43,8 @@ const mapStateToProps = state => ({
   todos : state
 })
 
-export default connect(mapStateToProps,{setVisibleTodos,moveDown})(App);
+export default connect(
+  mapStateToProps,{
+    setVisibleTodos,
+    moveDown,moveUp
+  })(App);
