@@ -20,12 +20,12 @@ const store = createStore(
   )
 
 const data = [
-    {  text : 'eieieieieieieieieieiei' },
-    {  text : '????????????????' },
-    {  text : '<><><><><><><>' },
-    {  text : 'HOOOOOOO0000' },
-    {  text : '_______________' },
-    {  text : '...............................' },
+    {  text : 'eieieieieieieieieieiei' , color : 'red' },
+    {  text : '????????????????' , color : 'black' },
+    {  text : '<><><><><><><>' , color : 'blue' },
+    {  text : 'HOOOOOOO0000' , color : 'green' },
+    {  text : '_______________' , color : 'brown' },
+    {  text : '...............................' , color : 'grey' },
 ]
 
 

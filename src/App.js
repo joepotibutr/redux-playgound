@@ -18,8 +18,8 @@ class App extends Component {
         <div className="App-intro">
           <ul>
           {this.props.todos.map((i,idx) => 
-              <li key={idx} style={{padding:'10px'}}>
-                {idx} ) {i.text} 
+              <li key={idx} style={{padding:'10px',color:`${i.color}`}}>
+               {idx} ) {i.text} 
                 <button 
                   onClick={() => this.props.moveDown(idx)}
                 >
